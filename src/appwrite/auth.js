@@ -1,15 +1,21 @@
-import { use } from 'react';
 import conf from '../conf.js';
+//Client, Account, ID: These are classes from the Appwrite SDK
+
+//Client: Manages the connection to the Appwrite server
+//Account: Provides methods for managing user accounts (e.g., creation, sessions, retrieval).
+//ID: Provides helper functions for generating unique IDs.
 import { Client, Account, ID } from "appwrite"
 
+//This class wraps the Appwrite SDK methods to provide an abstraction layer for authentication.
 export class Authservice {
     client = new Client();
     account;
     constructor() {
+        //this.client Refers to an instance of the Client class from the Appwrite SDK.
         this.client
             .setEndpoint(conf.appwriteURL)
             .setProject(conf.appwriteProjectId);
-        this.account = new Account(this.client);
+        this.account = new Account(this.client);    //It requires a Client instance (this.client) to know which server and project to interact with.
     }
 
     async createAccount({ email, password, name }) {
@@ -18,6 +24,7 @@ export class Authservice {
             if (userAccount) {
 
                 //call another method
+                //If account creation is successful, it immediately logs the user in using the login method.
                 return this.login({ email, password })
 
             } else {
@@ -45,7 +52,7 @@ export class Authservice {
         }
         return null;
     }
-    
+
     async logOut() {
         try {
             return await this.account.deleteSessions()
