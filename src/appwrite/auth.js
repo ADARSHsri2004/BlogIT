@@ -1,4 +1,4 @@
-import conf from '../conf.js';
+import conf from '../conf/conf.js';
 //Client, Account, ID: These are classes from the Appwrite SDK
 
 //Client: Manages the connection to the Appwrite server
