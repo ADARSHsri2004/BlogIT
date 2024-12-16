@@ -1,4 +1,4 @@
-import conf from '../conf.js';
+import conf from '../conf/conf';
 
 
 //These are classes from the Appwrite SDK
