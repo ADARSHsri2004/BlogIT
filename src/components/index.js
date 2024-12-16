@@ -1,4 +1,4 @@
-import Select from "./Select";
+import Select from "./Select"
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Container from "./container/Container";
@@ -24,7 +24,7 @@ export {
     Button,
     PostForm,
     PostCard,
-    AuthLayout,
-    Input,
-    Select,
+    AuthLayout, 
+    Input,Select
+   
 }

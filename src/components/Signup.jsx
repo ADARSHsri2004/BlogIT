@@ -1,34 +1,28 @@
 import React, { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
-import { login } from '../store/authSlice'
-import { Button, Input, Logo } from './index'
-import { useDispatch } from 'react-redux'
 import authService from '../appwrite/auth'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../store/authSlice'
+import { Button, Input, Logo } from './index.js'
+import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-//Sends the registration details to a backend service (authService).
-//Updates the global authentication state using Redux.
-//Redirects the user to the home page on successful registration.
 function Signup() {
     const navigate = useNavigate()
+    const [error, setError] = useState("")
     const dispatch = useDispatch()
-    const [error, seterror] = useState(false)
-    const { handleSubmit, register } = useForm();
+    const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
-        seterror("")
+        setError("")
         try {
             const userData = await authService.createAccount(data)
-
             if (userData) {
                 const userData = await authService.getCurrentUser()
-                if (userData) {
-                    dispatch(login(userData))
-                    navigate("/")
-                }
+                if (userData) dispatch(login(userData));
+                navigate("/")
             }
         } catch (error) {
-            seterror(error.message)
+            setError(error.message)
         }
     }
 
@@ -87,6 +81,7 @@ function Signup() {
                     </div>
                 </form>
             </div>
+
         </div>
     )
 }

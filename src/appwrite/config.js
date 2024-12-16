@@ -1,128 +1,62 @@
-import conf from '../conf/conf';
+import conf from '../conf/conf.js';
+import { Client, Account, ID } from "appwrite";
 
 
-//These are classes from the Appwrite SDK
-import { Client, ID, Databases, Storage, Query } from "appwrite"
-
-export class Service {
+export class AuthService {
     client = new Client();
-    databases;
-    bucket;
+    account;
+
     constructor() {
         this.client
-            .setEndpoint(conf.appwriteURL)
+            .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
-        this.databases = new Databases(this.client);
-        this.bucket = new Storage(this.client)
+        this.account = new Account(this.client);
+
     }
 
-    async createPost({ title, slug, content, featuredImage, status, userId }) {
+    async createAccount({ email, password, name }) {
         try {
-            return await this.databases.createDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                slug,
-                {
-                    title,
-                    content,
-                    featuredImage,
-                    status,
-                    userId
-                }
-            )
+            const userAccount = await this.account.create(ID.unique(), email, password, name);
+            if (userAccount) {
+                // call another method
+                return this.login({ email, password });
+            } else {
+                return userAccount;
+            }
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 
-    async updatePost(slug, { title, content, featuredImage, status }) {
+    async login({ email, password }) {
         try {
-            return await this.databases.updateDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                slug,
-                {
-                    title,
-                    content,
-                    featuredImage,
-                    status,
-                }
-            )
+            return await this.account.createEmailSession(email, password);
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 
-    async deletePost(slug) {
+    async getCurrentUser() {
         try {
-            await this.databases.deleteDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                slug
-            )
-            return true
+            return await this.account.get();
         } catch (error) {
-            console.log(error)
-            return false
+            console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
+
+        return null;
     }
 
-    async getPost(slug) {
-        try {
-            return await this.databases.getDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                slug
-            )
-        } catch (error) {
-            console.log(error)
-            return false
-        }
-    }
+    async logout() {
 
-    async getPosts(queries = [Query.equal("status", "active")]) {
         try {
-            return await this.databases.listDocuments(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                queries
-            )
+            await this.account.deleteSessions();
         } catch (error) {
-            console.log(error)
-            return false
+            console.log("Appwrite serive :: logout :: error", error);
         }
-    }
-
-    //file upload service
-    async uploadFile(file) {
-        try {
-            return await this.bucket.createFile(
-                conf.appwriteBucketId,
-                ID.unique(),
-                file
-            )
-        } catch (error) {
-            console.log(error)
-            return false
-        }
-    }
-
-    async deleteFile(fileId) {
-        try {
-            await this.bucket.deleteFile(
-                conf.appwriteBucketId,
-                fileId
-            )
-            return true
-        } catch (error) {
-            console.log(error)
-            return false
-        }
-    }
-    getFilePreview(fileId) {
-        return this.bucket.getFilePreview(conf.appwriteBucketId, fileId)
     }
 }
 
-const service = new Service()
-export default service
+const authService = new AuthService();
+
+export default authService
+
