@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import appwriteService from "../appwrite/config";
 import { Container, PostCard } from '../components'
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const [posts, setPosts] = useState([])
-
+    const navigate = useNavigate();
     useEffect(() => {
         // appwriteService.getPosts().then((posts) => {
         //     if (posts) {
@@ -13,19 +14,37 @@ function Home() {
         // })
 
     }, [])
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        // Trigger the animation on page load
+        setIsVisible(true);
+    }, []);
 
 
+
+
+    const gotoAddpost = () => {
+        // Replace '/destination' with the route or URL you want to navigate to
+        navigate("/add-post");
+    }
     return (
 
         <Container>
-            <div className='min-h-screen  w-full relative text-center flex justify-center bg-slate-400 '>
+            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[rgb(68,130,170)] '>
 
-                <div className='flex flex-col mt-20 items-center  gap-10 '>
-                    <p className='text-5xl font-semibold'> Unleash Your Tech Creativity with BlogIT</p>
+                <div className='flex flex-col pt-20 items-center  gap-10 '>
+                    <p className='text-5xl font-semibold mt-10'> Unleash Your Tech Creativity with BlogIT</p>
                     <p className='text-xl mb-4'>Your go-to platform for creating, sharing, and discovering IT insights.</p>
-                    <button className='bg-green-400 w-[10vw] p-3 rounded-lg'>Create Blog</button>
+                    <button className='bg-green-400 w-[10vw] p-3 rounded-lg' onClick={gotoAddpost}>Create Blog</button>
+                    <img src="p7.png" alt="" className={`h-[48.5vh]  transition-all duration-1000 ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-[120px] opacity-0"
+                        }`} />
                 </div>
-                <img src="" alt="" />
+                <img src="p1.png" alt="" className={`h-[40vh]  absolute top-48 -inset-x-20   transition-all duration-1000 ease-out ${isVisible ? "translate-x-0 opacity-100 " : "translate-x-44 opacity-0"
+                    }`} />
+                <img src="p5.png" alt="" className={`h-[40vh] absolute bottom-48  right-28  transition-all duration-1000 ease-in-out ${isVisible ? "translate-x-[calc(100vw-90rem)] opacity-100 " : "translate-x-24 opacity-0"
+                    }`} />
+
             </div>
             <div className='h-[75vh] bg-[rgb(255,128,0)] flex flex-row justify-between text-white'>
                 <div className='flex flex-col w-[44vw] justify-center pl-40 text-left gap-2'>
@@ -34,7 +53,7 @@ function Home() {
                     </p>
                 </div>
                 <div>
-                    <img src="bg6.png" alt="" className='h-[75vh]' />
+                    <img src="bg6.png" alt="" className='h-[75vh] -z-10 ' />
                     {/* <img src="bg2.png" alt="" className='h-[75vh]' /> */}
                     {/* bg-[rgb(188,56,46)] */}
                 </div>
@@ -67,10 +86,10 @@ function Home() {
                 <div className='text-left flex flex-col w-[44vw] justify-center pl-40 gap-2'>
                     <h1 className='text-[44px]'>Get Started in Minutes</h1>
                     <p className='text-[18px] text-left'>Sign up now and let your voice be heard!</p>
-                    <button className='bg-green-600 w-[10vw] p-3 text-center rounded-lg mt-3'>Create your Blog</button>
+                    <button className='bg-green-600 w-[10vw] p-3 text-center rounded-lg mt-3' onClick={gotoAddpost}>Create your Blog</button>
                 </div>
                 <div>
-                <img src="bg2.png" alt="" className='h-[75vh]' />
+                    <img src="bg2.png" alt="" className='h-[75vh]' />
                 </div>
 
             </div>

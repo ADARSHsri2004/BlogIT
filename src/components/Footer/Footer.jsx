@@ -4,139 +4,53 @@ import Logo from '../Logo'
 
 function Footer() {
   return (
-    <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2">
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
-        <div className="-m-6 flex flex-wrap">
-          <div className="w-full p-6 md:w-1/2 lg:w-5/12">
-            <div className="flex h-full flex-col justify-between">
-              <div className="mb-4 inline-flex items-center">
-                <Logo width="100px" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-600">
-                  &copy; Copyright 2023. All Rights Reserved by DevUI.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Company
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Affiliate Program
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Press Kit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Support
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Account
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Help
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Customer Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-3/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Legals
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Licensing
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div className='h-[50vh] text-gray-400 bg-[rgb(24,38,51)] flex flex-row p-5  gap-28 border-2 border-gray-800'>
+      <div className='mt-5 ml-5 flex flex-col gap-5 border-r-[1px] border-[#3a3a3e] mr-5'>
+        <img src="i3.png" alt="" className='h-[15vh] w-[8vw] ml-10' />
+        <p className='pr-10 w-[20vw] ml-'>
+          {/* © 2024 BlogIT. All Rights Reserved. */}
+          Your go-to platform for creating, sharing, and discovering IT insights.
+        </p>
+        <p className='pr-10 w-[20vw]  text-[12px]'>
+          © 2024 BlogIT. All Rights Reserved.
+          {/* Your go-to platform for creating, sharing, and discovering IT insights. */}
+        </p>
       </div>
-    </section>
+      <div className='flex flex-col gap-7 mt-14 '>
+        <h4 className='text-lg'>
+          Links
+        </h4>
+        <ul className='flex flex-col gap-3 items-center justify-center'>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/'>About</Link></li>
+          <li><Link to='/Signup'>Signup</Link></li>
+          <li><Link to='/Login'>Login</Link></li>
+        </ul>
+      </div>
+      <div className='flex flex-col gap-7 mt-14 ml-5'>
+        <h4 className='text-lg'>Contact us</h4>
+        <ul className='flex flex-col gap-3 items-center justify-center'>
+          <li><Link to='/'>support@blogit.com</Link></li>
+          <li><Link to='/'>+123 456 7890</Link></li>
+        </ul>
+      </div>
+      <div className='flex flex-col gap-3 mt-14 ml-5'>
+        <Link to='/'><h4 className='text-lg'>Terms of Service</h4></Link>
+        <Link to='/'><h4 className='text-lg'>Privacy</h4></Link>
+        <Link to='/'><h4 className='text-lg'>Content policy</h4></Link>
+        
+      </div>
+      <div className='flex flex-col items-center  gap-7 mt-14 ml-5'>
+        <h4 className='text-lg'>Social</h4>
+        <ul className='flex flex-row gap-5 items-center justify-center'>
+          <li><Link to='/'><img src="facebook.png" alt="" className='w-[3vw] h-[6vh]' /></Link></li>
+          <li><Link to='/'><img src="instagram.png" alt="" className='w-[3vw] h-[6vh]' /></Link></li>
+          <li><Link to='/'><img src="linkedin.png" alt="" className='w-[3vw] h-[6vh]' /></Link></li>
+          <li><Link to='/'><img src="twitter.png" alt="" className='w-[3vw] h-[6vh]' /></Link></li>
+        
+        </ul>
+      </div>
+    </div>
   )
 }
 

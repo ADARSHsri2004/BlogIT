@@ -40,8 +40,8 @@ function Header() {
 
 
   return (
-    <header className='p-2 bg-white sticky top-0 w-full z-10 h-[70px]'>
-      <Container>
+    <header className='p-2 bg-white fixed top-0 left-0  w-full z-10 h-[70px]'>
+      <Container >
         <nav className='flex'>
           <div className=''>
             <Link to='/'>
