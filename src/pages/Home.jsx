@@ -31,7 +31,7 @@ function Home() {
     return (
 
         <Container>
-            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[url("/public/t2.png")]'>
+            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[url("/t2.png")]'>
 
                 <div className='flex flex-col pt-20 items-center  gap-10 '>
                     <p className='text-5xl font-semibold mt-10'> Unleash Your Tech Creativity with BlogIT</p>
