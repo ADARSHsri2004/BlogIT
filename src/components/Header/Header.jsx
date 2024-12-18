@@ -3,14 +3,13 @@ import { Button, Container, Logo, LogoutBtn } from '../index'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import ThemeBtn from './ThemeBtn'
+// import ThemeBtn from './ThemeBtn'
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
 
   const navItems = [
-
     {
       name: 'Home',
       slug: "/",
@@ -38,28 +37,39 @@ function Header() {
     },
   ]
 
-
   return (
-    <header className='p-2 bg-white fixed top-0 left-0  w-full z-10 h-[70px]'>
-      <Container >
-        <nav className='flex'>
-          <div className=''>
+    <header className='p-4 bg-white fixed top-0 left-0 w-full z-10 shadow-md'>
+      <Container>
+        <nav className='flex items-center justify-between flex-wrap'>
+          {/* Logo Section */}
+          <div className='flex-shrink-0'>
             <Link to='/'>
-              <Logo width='70px' />
+              <Logo width='50px' className='w-[50px] h-auto' />
             </Link>
           </div>
-          <ul className='flex ml-auto'>
-            <li> <ThemeBtn /></li>
+
+          {/* Navigation Items */}
+          <ul className='flex items-center gap-2 ml-auto flex-wrap md:gap-6 overflow-x-auto'>
+            {/* Theme Toggle */}
+            <li>
+              {/* <ThemeBtn /> */}
+            </li>
+
+            {/* Dynamic Navigation Items */}
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
-                  >{item.name}</button>
+                    className='inline-block px-4 py-2 rounded-full text-sm md:text-base duration-200 hover:bg-blue-200 hover:text-blue-600'
+                  >
+                    {item.name}
+                  </button>
                 </li>
               ) : null
             )}
+
+            {/* Logout Button */}
             {authStatus && (
               <li>
                 <LogoutBtn />

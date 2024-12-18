@@ -31,19 +31,19 @@ function Home() {
     return (
 
         <Container>
-            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[rgb(68,130,170)] '>
+            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[url("/public/t2.png")]'>
 
                 <div className='flex flex-col pt-20 items-center  gap-10 '>
                     <p className='text-5xl font-semibold mt-10'> Unleash Your Tech Creativity with BlogIT</p>
                     <p className='text-xl mb-4'>Your go-to platform for creating, sharing, and discovering IT insights.</p>
                     <button className='bg-green-400 w-[10vw] p-3 rounded-lg' onClick={gotoAddpost}>Create Blog</button>
-                    <img src="p7.png" alt="" className={`h-[48.5vh]  transition-all duration-1000 ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-[120px] opacity-0"
-                        }`} />
+                    {/* <img src="p7.png" alt="" className={`h-[48.5vh]  transition-all duration-1000 ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-[120px] opacity-0"
+                        }`} /> */}
                 </div>
-                <img src="p1.png" alt="" className={`h-[40vh]  absolute top-48 -inset-x-20   transition-all duration-1000 ease-out ${isVisible ? "translate-x-0 opacity-100 " : "translate-x-44 opacity-0"
-                    }`} />
-                <img src="p5.png" alt="" className={`h-[40vh] absolute bottom-48  right-28  transition-all duration-1000 ease-in-out ${isVisible ? "translate-x-[calc(100vw-90rem)] opacity-100 " : "translate-x-24 opacity-0"
-                    }`} />
+                {/* <img src="p1.png" alt="" className={`h-[40vh]  absolute top-48 -inset-x-20   transition-all duration-1000 ease-out ${isVisible ? "translate-x-0 opacity-100 " : "translate-x-44 opacity-0"
+                    }`} /> */}
+                {/* <img src="p5.png" alt="" className={`h-[40vh] absolute bottom-48  right-28  transition-all duration-1000 ease-in-out ${isVisible ? "translate-x-[calc(100vw-90rem)] opacity-100 " : "translate-x-24 opacity-0"
+                    }`} /> */}
 
             </div>
             <div className='h-[75vh] bg-[rgb(255,128,0)] flex flex-row justify-between text-white'>

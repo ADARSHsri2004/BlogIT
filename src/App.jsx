@@ -6,9 +6,25 @@ import { login, logout } from "./store/authSlice"
 import { Footer, Header } from './components'
 import { Outlet } from 'react-router-dom'
 
+
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+
+  // const [themeMode, setThemeMode] = useState("light")
+
+  // const lightTheme = () => {
+  //   setThemeMode("light")
+  // }
+
+  // const darkTheme = () => {
+  //   setThemeMode("dark")
+  // }
+
+  // useEffect(() => {
+  //   document.querySelector('html').classList.remove("light", "dark")
+  //   document.querySelector('html').classList.add(themeMode)
+  // }, [themeMode])
 
   useEffect(() => {
     authService.getCurrentUser()
@@ -23,15 +39,16 @@ function App() {
   }, [])
 
   return !loading ? (
-    <div className='min-h-screen '>
-      <div className='w-full block'>
-        <Header />
-          <main className='w-full'>
-            <Outlet/>
-          </main>
-        <Footer />
-      </div>
+    <div >
+
+      <Header />
+      <main className='w-full'>
+        <Outlet />
+      </main>
+      <Footer />
+
     </div>
+
   ) : null
 }
 
