@@ -31,22 +31,17 @@ function Home() {
     return (
 
         <Container>
-            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[url("/t2.png")]'>
+            <div className='h-screen  w-full relative top-0 text-center text-white justify-center bg-[url("/t3.png")]'>
 
-                <div className='flex flex-col pt-20 items-center  gap-10 '>
+                <div className='flex flex-col pt-24 items-center  gap-8 '>
                     <p className='text-5xl font-semibold mt-10'> Unleash Your Tech Creativity with BlogIT</p>
                     <p className='text-xl mb-4'>Your go-to platform for creating, sharing, and discovering IT insights.</p>
-                    <button className='bg-green-400 w-[10vw] p-3 rounded-lg' onClick={gotoAddpost}>Create Blog</button>
-                    {/* <img src="p7.png" alt="" className={`h-[48.5vh]  transition-all duration-1000 ease-out ${isVisible ? "translate-y-0 opacity-100" : "translate-y-[120px] opacity-0"
-                        }`} /> */}
+                    <button className='bg-green-500 w-[10vw] p-3 rounded-lg transition transform hover:scale-105  hover:bg-green-600  hover:text-md hover:shadow-lg  active:bg-blue-500  active:text-white' onClick={gotoAddpost}>Create Blog</button>
+
                 </div>
-                {/* <img src="p1.png" alt="" className={`h-[40vh]  absolute top-48 -inset-x-20   transition-all duration-1000 ease-out ${isVisible ? "translate-x-0 opacity-100 " : "translate-x-44 opacity-0"
-                    }`} /> */}
-                {/* <img src="p5.png" alt="" className={`h-[40vh] absolute bottom-48  right-28  transition-all duration-1000 ease-in-out ${isVisible ? "translate-x-[calc(100vw-90rem)] opacity-100 " : "translate-x-24 opacity-0"
-                    }`} /> */}
 
             </div>
-            <div className='h-[75vh] bg-[rgb(255,128,0)] flex flex-row justify-between text-white'>
+            <div className='h-[75vh] bg-[rgb(255,128,0)] flex flex-row justify-between text-white '>
                 <div className='flex flex-col w-[44vw] justify-center pl-40 text-left gap-2'>
                     <h1 className='text-[44px]'>Write. Edit. Share. Inspire.</h1>
                     <p className='text-[18px] text-left'>BlogIT empowers IT enthusiasts to express their ideas, connect with like-minded individuals, and contribute to the ever-evolving world of technology.
@@ -86,7 +81,7 @@ function Home() {
                 <div className='text-left flex flex-col w-[44vw] justify-center pl-40 gap-2'>
                     <h1 className='text-[44px]'>Get Started in Minutes</h1>
                     <p className='text-[18px] text-left'>Sign up now and let your voice be heard!</p>
-                    <button className='bg-green-600 w-[10vw] p-3 text-center rounded-lg mt-3' onClick={gotoAddpost}>Create your Blog</button>
+                    <button className='bg-green-500 w-[10vw] p-3 mt-4 rounded-lg transition transform hover:scale-105  hover:bg-green-600  hover:text-md hover:shadow-lg  active:bg-blue-500  active:text-white' onClick={gotoAddpost}>Create Blog</button>
                 </div>
                 <div>
                     <img src="bg2.png" alt="" className='h-[75vh]' />

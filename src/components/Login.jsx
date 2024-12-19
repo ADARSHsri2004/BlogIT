@@ -27,8 +27,8 @@ function Login() {
     }
 
     return (
-        <div className='flex items-center justify-center w-full bg-green-200 relative h-screen'>
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10  flex flex-col items-center `}>
+        <div className='flex items-center h-screen pt-20  w-full bg-[url("/t6.png")]  '>
+            <div className={`mx-auto w-[30vw] h-[61vh]  flex flex-col items-center  bg-gray-100 p-10 border border-black/10 bg-white/30 backdrop-blur-md rounded-xl shadow-lg  max-w-md  transform transition-transform  hover:shadow-xl` }>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />
@@ -45,10 +45,10 @@ function Login() {
                     </Link>
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-                <form onSubmit={handleSubmit(login)} className='mt-8'>
+                <form onSubmit={handleSubmit(login)} className='mt-8 w-full text-left'>
                     <div className='space-y-5'>
-                        <Input
-                            label="Email: "
+                        <Input 
+                            label="Email: " 
                             placeholder="Enter your email"
                             type="email"
                             {...register("email", {
@@ -69,7 +69,7 @@ function Login() {
                         />
                         <Button
                             type="submit"
-                            className="w-full"
+                            className="bg-blue-500 w-full rounded-lg transition transform hover:scale-105  hover:bg-blue-600  hover:text-md hover:shadow-lg  active:bg-blue-500  active:text-white"
                         >Sign in</Button>
                     </div>
                 </form>

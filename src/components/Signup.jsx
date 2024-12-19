@@ -27,9 +27,9 @@ function Signup() {
     }
 
     return (
-        <div className="h-[80vh] ">
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
-                <div className="mb-2 flex justify-center">
+        <div className='h-screen pt-24  bg-[url("/t5.png")] flex items-center'>
+            <div className={`mx-auto w-[30vw] h-[72vh] bg-gray-100 p-10 border border-black/10 bg-white/30 backdrop-blur-md rounded-xl shadow-lg  max-w-md  transform transition-transform  hover:shadow-xl`}>
+                <div className="mb-2 flex justify-center ">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />
                     </span>
@@ -47,7 +47,7 @@ function Signup() {
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
                 <form onSubmit={handleSubmit(create)}>
-                    <div className='space-y-5'>
+                    <div className='space-y-5 text-left mt-7'>
                         <Input
                             label="Full Name: "
                             placeholder="Enter your full name"
@@ -75,7 +75,7 @@ function Signup() {
                                 required: true,
                             })}
                         />
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="bg-blue-500 w-full rounded-lg transition transform hover:scale-105  hover:bg-blue-600  hover:text-md hover:shadow-lg  active:bg-blue-500  active:text-white">
                             Create Account
                         </Button>
                     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Container, Logo, LogoutBtn } from '../index'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -8,7 +8,22 @@ import { useNavigate } from 'react-router-dom'
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
+  const [showNavbar, setShowNavbar] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
 
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   const navItems = [
     {
       name: 'Home',
@@ -16,8 +31,8 @@ function Header() {
       active: true
     },
     {
-      name: "Login",
-      slug: "/login",
+      name: "About",
+      slug: "/",
       active: !authStatus,
     },
     {
@@ -38,8 +53,9 @@ function Header() {
   ]
 
   return (
-    <header className='p-4 bg-white fixed top-0 left-0 w-full z-10 shadow-md'>
-      <Container>
+    <header className={`p-4 bg-white fixed top-0 left-0 w-full z-10 shadow-lg transition-transform transform ${showNavbar ? 'translate-y-0' : '-translate-y-full'
+      }`}>
+      < Container >
         <nav className='flex items-center justify-between flex-wrap'>
           {/* Logo Section */}
           <div className='flex-shrink-0'>
@@ -61,7 +77,7 @@ function Header() {
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className='inline-block px-4 py-2 rounded-full text-sm md:text-base duration-200 hover:bg-blue-200 hover:text-blue-600'
+                    className='inline-block px-4 py-2 rounded-lg text-sm md:text-base transform transition-all duration-500 hover:scale-1.2 hover:shadow-lg duration-400 ease-in-out  hover:bg-green-100'
                   >
                     {item.name}
                   </button>
@@ -77,8 +93,8 @@ function Header() {
             )}
           </ul>
         </nav>
-      </Container>
-    </header>
+      </Container >
+    </header >
   )
 }
 
