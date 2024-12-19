@@ -20,8 +20,8 @@ function EditPost() {
         }
     }, [slug, navigate])
   return post ? (
-    <div className='py-8'>
-        <Container>
+    <div className='py-8 min-h-screen'>
+        <Container className='min-h-screen'>
             <PostForm post={post} />
         </Container>
     </div>

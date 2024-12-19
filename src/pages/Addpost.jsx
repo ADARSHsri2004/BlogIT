@@ -3,10 +3,10 @@ import { Container, PostForm } from '../components'
 
 function AddPost() {
   return (
-    <div className='py-8 bg-gray-100'>
-        <Container>
-            <PostForm />
-        </Container>
+    <div className='py-16 bg-gradient-to-r from-[#64b3f4] to-[#c2e59c]'>
+      <Container>
+        <PostForm />
+      </Container>
     </div>
   )
 }

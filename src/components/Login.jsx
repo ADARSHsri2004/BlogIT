@@ -28,7 +28,7 @@ function Login() {
 
     return (
         <div className='flex items-center h-screen pt-20  w-full bg-[url("/t6.png")]  '>
-            <div className={`mx-auto w-[30vw] h-[61vh]  flex flex-col items-center  bg-gray-100 p-10 border border-black/10 bg-white/30 backdrop-blur-md rounded-xl shadow-lg  max-w-md  transform transition-transform  hover:shadow-xl` }>
+            <div className={`mx-auto w-[30vw] h-fit flex flex-col items-center  bg-gray-100 p-10 border border-black/10 bg-white/30 backdrop-blur-md rounded-xl shadow-lg  max-w-md  transform transition-transform  hover:shadow-xl` }>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />

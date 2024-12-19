@@ -28,7 +28,7 @@ function Signup() {
 
     return (
         <div className='h-screen pt-24  bg-[url("/t5.png")] flex items-center'>
-            <div className={`mx-auto w-[30vw] h-[72vh] bg-gray-100 p-10 border border-black/10 bg-white/30 backdrop-blur-md rounded-xl shadow-lg  max-w-md  transform transition-transform  hover:shadow-xl`}>
+            <div className={`mx-auto w-[30vw] h-fit~ bg-gray-100 p-10 border border-black/10 bg-white/30 backdrop-blur-md rounded-xl shadow-lg  max-w-md  transform transition-transform  hover:shadow-xl`}>
                 <div className="mb-2 flex justify-center ">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />
