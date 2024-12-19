@@ -17,8 +17,8 @@ function AllPosts() {
     if (posts.length === 0) {
         return (
             <Container>
-                <div className="min-h-screen flex justify-center items-center">
-                    <p>Loading posts...</p>
+                <div className="min-h-screen flex justify-center items-center bg-gray-100 ">
+                    <p className='text-2xl'>Loading posts...</p>
                 </div>
             </Container>
         )

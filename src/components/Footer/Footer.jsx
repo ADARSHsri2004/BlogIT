@@ -100,12 +100,12 @@ function Footer() {
                 />
               </Link>
             </li>
-            <li>
+            <li className='transition-transform hover:shadow-lg'>
               <Link to="/">
                 <img
                   src="twitter.png"
                   alt="Twitter"
-                  className="w-[7vw] h-[7vw] md:w-[3vw] md:h-[6vh]"
+                  className="w-[7vw] h-[7vw] md:w-[3vw] md:h-[6vh]  "
                 />
               </Link>
             </li>

@@ -71,18 +71,18 @@ export default function PostForm({ post }) {
     }, [watch, slugTransform, setValue]);
 
     return (
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap text-left m-5 ">
+            <div className="w-2/3 px-2 ">
                 <Input
-                    label="Title :"
+                    label="Title :" 
                     placeholder="Title"
-                    className="mb-4"
+                    className="mb-4 transition-shadow duration-400 hover:shadow-lg "
                     {...register("title", { required: true })}
                 />
                 <Input
                     label="Slug :"
                     placeholder="Slug"
-                    className="mb-4"
+                    className="mb-4 transition-shadow duration-400 hover:shadow-lg"
                     {...register("slug", { required: true })}
                     onInput={(e) => {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
@@ -94,7 +94,7 @@ export default function PostForm({ post }) {
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4"
+                    className="mb-4 transition-shadow duration-400 hover:shadow-lg"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -110,10 +110,10 @@ export default function PostForm({ post }) {
                 <Select
                     options={["active", "inactive"]}
                     label="Status"
-                    className="mb-4"
+                    className="mb-4 transition-shadow duration-400 hover:shadow-lg"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                <Button type="submit"  className="bg-blue-500 w-full rounded-lg transition transform duration-400 hover:bg-blue-700  hover:text-md hover:shadow-lg  active:bg-green-600  active:text-white">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>
