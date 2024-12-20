@@ -53,15 +53,16 @@ function Header() {
   ]
 
   return (
-    <header className={`p-4 bg-white fixed top-0 left-0 w-full z-10 shadow-lg transition-transform transform ${showNavbar ? 'translate-y-0' : '-translate-y-full'
+    <header className={`p-3 bg-white fixed top-0 left-0 w-full z-10 shadow-lg transition-transform transform ${showNavbar ? 'translate-y-0' : '-translate-y-full'
       }`}>
       < Container >
         <nav className='flex items-center justify-between flex-wrap'>
           {/* Logo Section */}
-          <div className='flex-shrink-0'>
+          <div className='flex-shrink-0 flex items-center justify-center'>
             <Link to='/'>
-              <Logo width='50px' className='w-[50px] h-auto' />
+              <Logo />
             </Link>
+              <span className='text-3xl font-semibold font-mono'>BlogIT</span>
           </div>
 
           {/* Navigation Items */}

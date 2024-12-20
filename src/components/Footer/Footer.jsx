@@ -8,7 +8,7 @@ function Footer() {
         {/* Logo and About */}
         <div className="flex flex-col gap-5 items-center md:items-start md:border-r-[1px] md:border-[#3a3a3e] md:pr-10">
           <img
-            src="i3.png"
+            src="t8.png"
             alt="Logo"
             className="h-[10vh] w-[30vw] md:h-[15vh] md:w-[8vw]"
           />
